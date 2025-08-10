@@ -130,9 +130,9 @@ export default function ConferencesPage() {
                     This conference examined Pakistan&apos;s foreign policy challenges and opportunities in the evolving global order. It featured presentations on Pakistan&apos;s relations with major powers, regional dynamics, and economic diplomacy.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="#" className="text-sm text-accent hover:underline">Conference Report</a>
-                    <a href="#" className="text-sm text-accent hover:underline">Photo Gallery</a>
-                    <a href="#" className="text-sm text-accent hover:underline">Published Papers</a>
+                    <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Conference Report</Link>
+                 <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Photo Gallery</Link>
+                 <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Published Papers</Link>
                   </div>
                 </div>
               </div>
@@ -157,9 +157,9 @@ export default function ConferencesPage() {
                     This conference analyzed the role of electoral politics in Pakistan&apos;s democratic consolidation. It included discussions on electoral systems, political parties, voter behavior, and electoral reforms.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="#" className="text-sm text-accent hover:underline">Conference Report</a>
-                    <a href="#" className="text-sm text-accent hover:underline">Photo Gallery</a>
-                    <a href="#" className="text-sm text-accent hover:underline">Published Papers</a>
+                    <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Conference Report</Link>
+                 <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Photo Gallery</Link>
+                 <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Published Papers</Link>
                   </div>
                 </div>
               </div>
@@ -184,9 +184,9 @@ export default function ConferencesPage() {
                     This virtual conference explored the political and economic implications of the China-Pakistan Economic Corridor (CPEC) for Pakistan and the broader region. It featured speakers from Pakistan, China, and other countries.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <a href="#" className="text-sm text-accent hover:underline">Conference Report</a>
-                    <a href="#" className="text-sm text-accent hover:underline">Video Recordings</a>
-                    <a href="#" className="text-sm text-accent hover:underline">Published Papers</a>
+                    <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Conference Report</Link>
+                 <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Video Recordings</Link>
+                 <Link href="/events/conferences/archive" className="text-sm text-accent hover:underline">Published Papers</Link>
                   </div>
                 </div>
               </div>

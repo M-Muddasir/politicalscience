@@ -66,7 +66,7 @@ export default function ScholarshipsPage() {
                   <li>Eligibility: Minimum CGPA of 3.75 or 90% marks in admission test</li>
                   <li>Duration: Entire program, subject to maintaining a minimum CGPA of 3.5</li>
                 </ul>
-                <a href="#" className="text-accent hover:underline">Application Details →</a>
+                <Link href="/scholarships/apply" className="text-accent hover:underline">Application Details →</Link>
               </div>
 
               <div className="border-l-4 border-accent pl-4">
@@ -79,7 +79,7 @@ export default function ScholarshipsPage() {
                   <li>Eligibility: Top 3 positions in admission merit list</li>
                   <li>Duration: One year, renewable based on academic performance</li>
                 </ul>
-                <a href="#" className="text-accent hover:underline">Application Details →</a>
+                <Link href="/scholarships/apply" className="text-accent hover:underline">Application Details →</Link>
               </div>
 
               <div className="border-l-4 border-accent pl-4">
@@ -92,7 +92,7 @@ export default function ScholarshipsPage() {
                   <li>Eligibility: Outstanding research proposal or published work</li>
                   <li>Duration: One semester, renewable based on research progress</li>
                 </ul>
-                <a href="#" className="text-accent hover:underline">Application Details →</a>
+                <Link href="/scholarships/apply" className="text-accent hover:underline">Application Details →</Link>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function ScholarshipsPage() {
                   <li>Eligibility: Family income below Rs. 40,000 per month</li>
                   <li>Duration: Entire program, subject to annual financial review</li>
                 </ul>
-                <a href="#" className="text-accent hover:underline">Application Details →</a>
+                <Link href="/scholarships/apply" className="text-accent hover:underline">Application Details →</Link>
               </div>
 
               <div className="border-l-4 border-accent pl-4">
@@ -131,7 +131,7 @@ export default function ScholarshipsPage() {
                   <li>Eligibility: Pakistani nationals with demonstrated financial need</li>
                   <li>Duration: Entire degree program</li>
                 </ul>
-                <a href="#" className="text-accent hover:underline">Application Details →</a>
+                <Link href="/scholarships/apply" className="text-accent hover:underline">Application Details →</Link>
               </div>
             </div>
           </div>
@@ -152,19 +152,19 @@ export default function ScholarshipsPage() {
               <div className="border-l-4 border-accent pl-4">
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">Fulbright Scholarship Program</h4>
                 <p className="text-gray-600 mb-1">For graduate studies in the United States</p>
-                <a href="#" className="text-accent hover:underline">Learn More →</a>
+                <Link href="/contact" className="text-accent hover:underline">Learn More →</Link>
               </div>
               
               <div className="border-l-4 border-accent pl-4">
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">Commonwealth Scholarships</h4>
                 <p className="text-gray-600 mb-1">For studies in the UK and other Commonwealth countries</p>
-                <a href="#" className="text-accent hover:underline">Learn More →</a>
+                <Link href="/contact" className="text-accent hover:underline">Learn More →</Link>
               </div>
               
               <div className="border-l-4 border-accent pl-4">
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">DAAD Scholarships</h4>
                 <p className="text-gray-600 mb-1">For studies and research in Germany</p>
-                <a href="#" className="text-accent hover:underline">Learn More →</a>
+                <Link href="/contact" className="text-accent hover:underline">Learn More →</Link>
               </div>
             </div>
           </div>
@@ -183,19 +183,19 @@ export default function ScholarshipsPage() {
               <div className="border-l-4 border-accent pl-4">
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">Prime Minister&apos;s Fee Reimbursement Scheme</h4>
                 <p className="text-gray-600 mb-1">For students from less developed areas</p>
-                <a href="#" className="text-accent hover:underline">Learn More →</a>
+                <Link href="/contact" className="text-accent hover:underline">Learn More →</Link>
               </div>
               
               <div className="border-l-4 border-accent pl-4">
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">Punjab Educational Endowment Fund</h4>
                 <p className="text-gray-600 mb-1">For talented students from Punjab province</p>
-                <a href="#" className="text-accent hover:underline">Learn More →</a>
+                <Link href="/contact" className="text-accent hover:underline">Learn More →</Link>
               </div>
               
               <div className="border-l-4 border-accent pl-4">
                 <h4 className="text-lg font-semibold text-gray-800 mb-1">Pakistan Bait-ul-Mal Scholarships</h4>
                 <p className="text-gray-600 mb-1">For orphans and children from disadvantaged backgrounds</p>
-                <a href="#" className="text-accent hover:underline">Learn More →</a>
+                <Link href="/contact" className="text-accent hover:underline">Learn More →</Link>
               </div>
             </div>
           </div>

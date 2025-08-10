@@ -65,7 +65,7 @@ export default function NewslettersPage() {
               <p className="text-gray-600 mb-4">
                 Featuring highlights from our international conference on &ldquo;Democracy and Governance in South Asia,&rdquo; faculty research updates, and student achievements.
               </p>
-              <a href="#" className="text-accent hover:underline">Read Newsletter →</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">Read Newsletter →</Link>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ export default function NewslettersPage() {
               <p className="text-gray-600 mb-4">
                 Covering the visiting scholar program, new faculty appointments, student research projects, and departmental events calendar.
               </p>
-              <a href="#" className="text-accent hover:underline">Read Newsletter →</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">Read Newsletter →</Link>
             </div>
           </div>
 
@@ -103,7 +103,7 @@ export default function NewslettersPage() {
               <p className="text-gray-600 mb-4">
                 Year-end review featuring faculty publications, alumni spotlights, student achievements, and highlights from the annual department symposium.
               </p>
-              <a href="#" className="text-accent hover:underline">Read Newsletter →</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">Read Newsletter →</Link>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function NewslettersPage() {
                 <h3 className="text-lg font-semibold text-gray-800">Fall 2022</h3>
                 <p className="text-gray-500 text-sm">July - September 2022</p>
               </div>
-              <a href="#" className="text-accent hover:underline">View</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">View</Link>
             </div>
 
             <div className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-md transition-colors">
@@ -124,7 +124,7 @@ export default function NewslettersPage() {
                 <h3 className="text-lg font-semibold text-gray-800">Summer 2022</h3>
                 <p className="text-gray-500 text-sm">April - June 2022</p>
               </div>
-              <a href="#" className="text-accent hover:underline">View</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">View</Link>
             </div>
 
             <div className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-md transition-colors">
@@ -132,7 +132,7 @@ export default function NewslettersPage() {
                 <h3 className="text-lg font-semibold text-gray-800">Spring 2022</h3>
                 <p className="text-gray-500 text-sm">January - March 2022</p>
               </div>
-              <a href="#" className="text-accent hover:underline">View</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">View</Link>
             </div>
 
             <div className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-md transition-colors">
@@ -140,7 +140,7 @@ export default function NewslettersPage() {
                 <h3 className="text-lg font-semibold text-gray-800">Winter 2021</h3>
                 <p className="text-gray-500 text-sm">October - December 2021</p>
               </div>
-              <a href="#" className="text-accent hover:underline">View</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">View</Link>
             </div>
 
             <div className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-md transition-colors">
@@ -148,7 +148,7 @@ export default function NewslettersPage() {
                 <h3 className="text-lg font-semibold text-gray-800">Fall 2021</h3>
                 <p className="text-gray-500 text-sm">July - September 2021</p>
               </div>
-              <a href="#" className="text-accent hover:underline">View</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">View</Link>
             </div>
 
             <div className="flex items-center justify-between p-4 hover:bg-gray-50 rounded-md transition-colors">
@@ -156,7 +156,7 @@ export default function NewslettersPage() {
                 <h3 className="text-lg font-semibold text-gray-800">Summer 2021</h3>
                 <p className="text-gray-500 text-sm">April - June 2021</p>
               </div>
-              <a href="#" className="text-accent hover:underline">View</a>
+              <Link href="/research/newsletters/full-archive" className="text-accent hover:underline">View</Link>
             </div>
           </div>
           <div className="text-center mt-8">

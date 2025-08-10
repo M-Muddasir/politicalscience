@@ -145,7 +145,7 @@ export default function QJPSSJournalPage() {
               </div>
               <h3 className="text-lg font-semibold text-gray-800">Volume 37, Issue 2</h3>
               <p className="text-gray-500 text-sm mb-2">April-June 2023</p>
-              <a href="#" className="text-accent hover:underline">View Issue</a>
+              <Link href="/research/qjpss/archive" className="text-accent hover:underline">View Issue</Link>
             </div>
 
             <div className="text-center">
@@ -159,7 +159,7 @@ export default function QJPSSJournalPage() {
               </div>
               <h3 className="text-lg font-semibold text-gray-800">Volume 37, Issue 1</h3>
               <p className="text-gray-500 text-sm mb-2">January-March 2023</p>
-              <a href="#" className="text-accent hover:underline">View Issue</a>
+              <Link href="/research/qjpss/archive" className="text-accent hover:underline">View Issue</Link>
             </div>
 
             <div className="text-center">
@@ -173,7 +173,7 @@ export default function QJPSSJournalPage() {
               </div>
               <h3 className="text-lg font-semibold text-gray-800">Volume 36, Issue 4</h3>
               <p className="text-gray-500 text-sm mb-2">October-December 2022</p>
-              <a href="#" className="text-accent hover:underline">View Issue</a>
+              <Link href="/research/qjpss/archive" className="text-accent hover:underline">View Issue</Link>
             </div>
           </div>
           <div className="text-center mt-8">

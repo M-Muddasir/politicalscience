@@ -118,7 +118,7 @@ export default function AlumniPage() {
                 <p className="text-gray-600">
                   Read about how Ms. Ayesha Raza, a 2005 graduate, transitioned from being a political science student to becoming a member of the National Assembly and championing educational reforms.
                 </p>
-                <a href="#" className="text-accent hover:underline mt-2 inline-block">Read Full Story</a>
+                <Link href="/alumni/notable-graduates" className="text-accent hover:underline mt-2 inline-block">Read Full Story</Link>
               </div>
               
               <div className="border-b border-gray-200 pb-6">
@@ -126,7 +126,7 @@ export default function AlumniPage() {
                 <p className="text-gray-600">
                   Learn about Dr. Rashid Khan&apos;s journey from GCU to the United Nations, where he now leads important initiatives on climate policy and sustainable development.
                 </p>
-                <a href="#" className="text-accent hover:underline mt-2 inline-block">Read Full Story</a>
+                <Link href="/alumni/notable-graduates" className="text-accent hover:underline mt-2 inline-block">Read Full Story</Link>
               </div>
               
               <div>
@@ -134,7 +134,7 @@ export default function AlumniPage() {
                 <p className="text-gray-600">
                   Discover how Prof. Zainab Ahmed&apos;s research at Harvard University is changing the discourse on South Asian politics and influencing policy decisions.
                 </p>
-                <a href="#" className="text-accent hover:underline mt-2 inline-block">Read Full Story</a>
+                <Link href="/alumni/notable-graduates" className="text-accent hover:underline mt-2 inline-block">Read Full Story</Link>
               </div>
             </div>
           </div>

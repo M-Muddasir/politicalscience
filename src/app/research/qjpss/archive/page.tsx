@@ -27,7 +27,7 @@ export default function QJPSSArchivePage() {
               <h3 className="text-lg font-semibold text-gray-800 mb-2">Volume 1, Issue 1</h3>
               <p className="text-gray-600 mb-2">January-March 2023</p>
               <p className="text-gray-500 text-sm mb-3">Latest Issue</p>
-              <a href="#" className="text-accent hover:underline">Download PDF</a>
+              <Link href="/contact" className="text-accent hover:underline">Download PDF</Link>
             </div>
             
             <div className="border border-gray-200 rounded-lg p-4">
