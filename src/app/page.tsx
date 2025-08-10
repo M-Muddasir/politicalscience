@@ -84,7 +84,7 @@ export default function Home() {
           <div className="bg-secondary text-black p-8 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-3">QJPSS Journal</h3>
             <p className="mb-4">Discover our quarterly academic journal featuring scholarly articles and research.</p>
-            <Link href="/qjpss" className="inline-block bg-white text-secondary hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
+            <Link href="/research/qjpss" className="inline-block bg-white text-secondary hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
               Explore Journal
             </Link>
           </div>
