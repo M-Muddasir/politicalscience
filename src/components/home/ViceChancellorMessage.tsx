@@ -24,8 +24,8 @@ export default async function ViceChancellorMessage() {
                 {vcMessage.imageUrl ? (
                   <div className="relative h-80 w-64 overflow-hidden rounded-lg shadow-lg border-2 border-gold">
                     <Image
-                      src={vcMessage.imageUrl}
-                      alt={vcMessage.name}
+                      src="/images/gcu-vc.png"
+                      alt="GCU Vice Chancellor"
                       fill
                       className="object-cover"
                     />
