@@ -21,9 +21,20 @@ export async function middleware(request: NextRequest) {
   
   // If no token and trying to access a protected route, redirect to login
   if (!token && !isPublicPath) {
-    return NextResponse.redirect(new URL('/admin/login', request.url));
+    try {
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    } catch (error) {
+      // During static generation, request.url might be invalid
+      // In this case, just allow the request to proceed
+      return NextResponse.next();
+    }
   }
   
   // If token exists and the user is trying to access an admin route, allow them
   return NextResponse.next();
 }
+
+// Configure middleware to only run on admin routes
+export const config = {
+  matcher: ['/admin/:path*']
+};
