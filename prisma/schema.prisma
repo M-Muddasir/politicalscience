@@ -1,0 +1,286 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Department information
+model Department {
+  id          String   @id @default(cuid())
+  name        String
+  description String   @db.Text
+  mission     String   @db.Text
+  vision      String   @db.Text
+  history     String   @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  vcMessages   ViceChancellorMessage[]
+  messages     ChairpersonMessage[]
+  faculty      Faculty[]
+  programs     Program[]
+}
+
+// Vice Chancellor messages
+model ViceChancellorMessage {
+  id           String   @id @default(cuid())
+  name         String
+  title        String
+  message      String   @db.Text
+  imageUrl     String?
+  departmentId String
+  department   Department @relation(fields: [departmentId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isActive     Boolean  @default(true)
+}
+
+// Chairperson messages
+model ChairpersonMessage {
+  id           String   @id @default(cuid())
+  title        String
+  message      String   @db.Text
+  imageUrl     String?
+  departmentId String
+  department   Department @relation(fields: [departmentId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isActive     Boolean  @default(true)
+}
+
+// Faculty profiles
+model Faculty {
+  id           String   @id @default(cuid())
+  name         String
+  designation  String
+  expertise    String
+  email        String
+  phone        String?
+  bio          String   @db.Text
+  imageUrl     String?
+  cvUrl        String?
+  departmentId String
+  department   Department @relation(fields: [departmentId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isActive     Boolean  @default(true)
+}
+
+// Academic programs
+model Program {
+  id           Int      @id @default(autoincrement())
+  name         String
+  degreeType   String   // Bachelor, Master, MPhil, PhD
+  description  String   @db.Text
+  duration     String
+  creditHours  String
+  eligibility  String   @db.Text
+  departmentId String
+  department   Department @relation(fields: [departmentId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  // Relations
+  courses      Course[]
+  contactSubmissions ContactSubmission[]
+}
+
+// Program courses
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  code        String
+  description String   @db.Text
+  creditHours Int
+  programId   Int
+  program     Program  @relation(fields: [programId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// News and events
+model News {
+  id          String   @id @default(cuid())
+  title       String
+  content     String   @db.Text
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime @default(now())
+  isPublished Boolean  @default(true)
+  isHighlighted Boolean @default(false)
+}
+
+// Events
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  date        DateTime
+  venue       String
+  imageUrl    String?
+  attachments String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  isActive    Boolean  @default(true)
+
+  // Relations 
+  societyId   String?
+  society     Society? @relation(fields: [societyId], references: [id])
+}
+
+// Quarterly journal publications
+model Journal {
+  id           String   @id @default(cuid())
+  title        String
+  volume       Int
+  issue        Int
+  year         Int
+  pdfUrl       String
+  description  String?  @db.Text
+  thumbnailUrl String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Department newsletters
+model Newsletter {
+  id           String   @id @default(cuid())
+  title        String
+  year         Int
+  issue        Int
+  pdfUrl       String
+  thumbnailUrl String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Alumni profiles
+model Alumni {
+  id           String   @id @default(cuid())
+  name         String
+  graduationYear Int
+  degree       String
+  achievement  String?  @db.Text
+  imageUrl     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// International conferences
+model Conference {
+  id           String   @id @default(cuid())
+  title        String
+  year         Int
+  description  String   @db.Text
+  imageUrl     String?
+  proceedingsUrl String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Scholarships
+model Scholarship {
+  id           String   @id @default(cuid())
+  name         String
+  description  String   @db.Text
+  amount       String
+  eligibility  String   @db.Text
+  process      String   @db.Text
+  deadline     DateTime?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isActive     Boolean  @default(true)
+}
+
+// China Study Centre
+model ChinaStudyCentre {
+  id           String   @id @default(cuid())
+  title        String
+  description  String   @db.Text
+  objectives   String   @db.Text
+  imageUrl     String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  // Relations
+  agreements   Agreement[]
+  activities   Activity[]
+}
+
+model Agreement {
+  id                String   @id @default(cuid())
+  title             String
+  description       String   @db.Text
+  pdfUrl            String
+  chinaStudyCentreId String
+  chinaStudyCentre  ChinaStudyCentre @relation(fields: [chinaStudyCentreId], references: [id])
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Activity {
+  id                String   @id @default(cuid())
+  title             String
+  description       String   @db.Text
+  date              DateTime
+  imageUrl          String?
+  chinaStudyCentreId String
+  chinaStudyCentre  ChinaStudyCentre @relation(fields: [chinaStudyCentreId], references: [id])
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+// Student societies
+model Society {
+  id           String   @id @default(cuid())
+  name         String
+  description  String   @db.Text
+  activities   String   @db.Text
+  advisorName  String
+  presidentName String
+  constitutionUrl String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isActive     Boolean  @default(true)
+  
+  // Relations
+  events       Event[]
+}
+
+// Admin users
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  password     String
+  role         String   @default("user") // admin, editor, user
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// Contact form submissions
+model ContactSubmission {
+  id           String   @id @default(cuid())
+  name         String
+  email        String
+  phone        String?
+  message      String   @db.Text
+  education    String?
+  type         String   // GENERAL, ADMISSION_INQUIRY, FEEDBACK
+  status       String   @default("PENDING") // PENDING, IN_PROGRESS, RESOLVED
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  isRead       Boolean  @default(false)
+  
+  // Relations
+  programId    Int?
+  program      Program? @relation(fields: [programId], references: [id])
+}
