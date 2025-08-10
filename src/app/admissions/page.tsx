@@ -43,7 +43,7 @@ export default async function AdmissionsPage() {
       {/* Hero Banner */}
       <div className="relative h-[300px] rounded-lg overflow-hidden mb-12">
         <Image
-          src="/images/university-building.jpg"
+          src="/images/gcu-vc.png"
           alt="GCU Lahore Campus"
           fill
           className="object-cover"

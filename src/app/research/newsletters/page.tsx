@@ -23,7 +23,7 @@ export default function NewslettersPage() {
             <div className="md:w-1/3 mb-6 md:mb-0 flex justify-center">
               <div className="relative h-72 w-56 shadow-lg">
                 <Image 
-                  src="/images/newsletter-cover.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Department Newsletter"
                   fill
                   className="object-cover rounded-md"
@@ -53,7 +53,7 @@ export default function NewslettersPage() {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative h-64">
               <Image 
-                src="/images/newsletter-2023-q2.jpg" 
+                src="/images/slide2.jpg" 
                 alt="Summer 2023 Newsletter"
                 fill
                 className="object-cover"
@@ -72,7 +72,7 @@ export default function NewslettersPage() {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative h-64">
               <Image 
-                src="/images/newsletter-2023-q1.jpg" 
+                src="/images/slide3.jpg" 
                 alt="Spring 2023 Newsletter"
                 fill
                 className="object-cover"
@@ -91,7 +91,7 @@ export default function NewslettersPage() {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="relative h-64">
               <Image 
-                src="/images/newsletter-2022-q4.jpg" 
+                src="/images/slide1.jpg" 
                 alt="Winter 2022 Newsletter"
                 fill
                 className="object-cover"

@@ -23,7 +23,7 @@ export default function SocietiesPage() {
             <div className="md:w-1/3 mb-6 md:mb-0">
               <div className="relative h-64 w-full">
                 <Image 
-                  src="/images/student-societies.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Student Societies"
                   fill
                   className="object-cover rounded-lg"
@@ -48,7 +48,7 @@ export default function SocietiesPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image 
-                  src="/images/debate-society.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="GCU Political Science Debate Society"
                   fill
                   className="object-cover"
@@ -75,7 +75,7 @@ export default function SocietiesPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image 
-                  src="/images/model-un.jpg" 
+                  src="/images/slide2.jpg" 
                   alt="GCU Model United Nations Society"
                   fill
                   className="object-cover"
@@ -102,7 +102,7 @@ export default function SocietiesPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image 
-                  src="/images/policy-forum.jpg" 
+                  src="/images/slide3.jpg" 
                   alt="Policy Research Forum"
                   fill
                   className="object-cover"
@@ -129,7 +129,7 @@ export default function SocietiesPage() {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="relative h-64">
                 <Image 
-                  src="/images/community-service.jpg" 
+                  src="/images/chairperson.jpeg" 
                   alt="Political Science Community Service Society"
                   fill
                   className="object-cover"
@@ -201,7 +201,7 @@ export default function SocietiesPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/student-leader1.jpg" 
+                  src="/images/chairperson.jpeg" 
                   alt="Sara Ahmed - President, Debate Society"
                   fill
                   className="object-cover"
@@ -214,7 +214,7 @@ export default function SocietiesPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/student-leader2.jpg" 
+                  src="/images/gcu-vc.png" 
                   alt="Ali Raza - Secretary General, Model UN Society"
                   fill
                   className="object-cover"
@@ -227,7 +227,7 @@ export default function SocietiesPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/student-leader3.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Amna Khan - Director, Policy Research Forum"
                   fill
                   className="object-cover"
@@ -240,7 +240,7 @@ export default function SocietiesPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/student-leader4.jpg" 
+                  src="/images/slide2.jpg" 
                   alt="Hassan Ali - Chair, Community Service Society"
                   fill
                   className="object-cover"

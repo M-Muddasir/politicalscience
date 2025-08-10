@@ -151,7 +151,7 @@ export default async function EventsPage() {
             <div className="flex flex-col h-full">
               <div className="relative h-48 mb-4 rounded-md overflow-hidden">
                 <Image 
-                  src="/images/conference.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Academic Conferences"
                   fill
                   className="object-cover"
@@ -169,7 +169,7 @@ export default async function EventsPage() {
             <div className="flex flex-col h-full">
               <div className="relative h-48 mb-4 rounded-md overflow-hidden">
                 <Image 
-                  src="/images/guest-lecture.jpg" 
+                  src="/images/slide2.jpg" 
                   alt="Guest Lectures"
                   fill
                   className="object-cover"

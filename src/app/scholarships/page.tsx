@@ -23,7 +23,7 @@ export default function ScholarshipsPage() {
             <div className="md:w-1/3 mb-6 md:mb-0">
               <div className="relative h-64 w-full">
                 <Image 
-                  src="/images/scholarships.jpg" 
+                  src="/images/slide3.jpg" 
                   alt="Scholarships"
                   fill
                   className="object-cover rounded-lg"

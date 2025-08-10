@@ -211,7 +211,7 @@ export default function ContactPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/admin-staff1.jpg" 
+                  src="/images/chairperson.jpeg" 
                   alt="Prof. Dr. Amina Khan - Chairperson"
                   fill
                   className="object-cover"
@@ -225,7 +225,7 @@ export default function ContactPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/admin-staff2.jpg" 
+                  src="/images/gcu-vc.png" 
                   alt="Mr. Faisal Mahmood - Administrative Officer"
                   fill
                   className="object-cover"
@@ -239,7 +239,7 @@ export default function ContactPage() {
             <div className="text-center">
               <div className="relative h-32 w-32 rounded-full overflow-hidden mx-auto mb-4">
                 <Image 
-                  src="/images/admin-staff3.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Ms. Nadia Ahmed - Student Affairs Coordinator"
                   fill
                   className="object-cover"

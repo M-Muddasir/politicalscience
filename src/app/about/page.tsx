@@ -37,7 +37,7 @@ export default function AboutPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/department-building.jpg" 
+                src="/images/gcu-vc.png" 
                 alt="Department of Political Science Building"
                 fill
                 className="object-cover"

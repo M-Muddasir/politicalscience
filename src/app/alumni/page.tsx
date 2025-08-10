@@ -23,7 +23,7 @@ export default function AlumniPage() {
             <div className="md:w-1/3 mb-6 md:mb-0">
               <div className="relative h-60 w-full">
                 <Image 
-                  src="/images/alumni-network.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Alumni Network"
                   fill
                   className="object-cover rounded-lg"
@@ -49,7 +49,7 @@ export default function AlumniPage() {
               <div className="text-center mb-4">
                 <div className="relative h-48 w-48 mx-auto rounded-full overflow-hidden mb-4">
                   <Image 
-                    src="/images/alumni-profile1.jpg" 
+                    src="/images/chairperson.jpeg" 
                     alt="Dr. Ahmad Khan"
                     fill
                     className="object-cover"
@@ -68,7 +68,7 @@ export default function AlumniPage() {
               <div className="text-center mb-4">
                 <div className="relative h-48 w-48 mx-auto rounded-full overflow-hidden mb-4">
                   <Image 
-                    src="/images/alumni-profile2.jpg" 
+                    src="/images/gcu-vc.png" 
                     alt="Prof. Samina Ali"
                     fill
                     className="object-cover"
@@ -87,7 +87,7 @@ export default function AlumniPage() {
               <div className="text-center mb-4">
                 <div className="relative h-48 w-48 mx-auto rounded-full overflow-hidden mb-4">
                   <Image 
-                    src="/images/alumni-profile3.jpg" 
+                    src="/images/slide2.jpg" 
                     alt="Mr. Tariq Mahmood"
                     fill
                     className="object-cover"

@@ -23,7 +23,7 @@ export default function QJPSSJournalPage() {
             <div className="md:w-1/3 mb-6 md:mb-0 flex justify-center">
               <div className="relative h-72 w-56 shadow-lg">
                 <Image 
-                  src="/images/journal-cover.jpg" 
+                  src="/images/slide3.jpg" 
                   alt="QJPSS Journal Cover"
                   fill
                   className="object-cover rounded-md"
@@ -137,7 +137,7 @@ export default function QJPSSJournalPage() {
             <div className="text-center">
               <div className="relative h-64 w-48 mx-auto mb-4 shadow-md">
                 <Image 
-                  src="/images/journal-issue1.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="QJPSS Journal Issue"
                   fill
                   className="object-cover rounded-md"
@@ -151,7 +151,7 @@ export default function QJPSSJournalPage() {
             <div className="text-center">
               <div className="relative h-64 w-48 mx-auto mb-4 shadow-md">
                 <Image 
-                  src="/images/journal-issue2.jpg" 
+                  src="/images/slide2.jpg" 
                   alt="QJPSS Journal Issue"
                   fill
                   className="object-cover rounded-md"
@@ -165,7 +165,7 @@ export default function QJPSSJournalPage() {
             <div className="text-center">
               <div className="relative h-64 w-48 mx-auto mb-4 shadow-md">
                 <Image 
-                  src="/images/journal-issue3.jpg" 
+                  src="/images/slide3.jpg" 
                   alt="QJPSS Journal Issue"
                   fill
                   className="object-cover rounded-md"

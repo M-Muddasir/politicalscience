@@ -23,7 +23,7 @@ export default function HistoryPage() {
             <div className="md:w-1/3 mb-6 md:mb-0">
               <div className="relative h-64 w-full">
                 <Image 
-                  src="/images/department-historic.jpg" 
+                  src="/images/gcu-vc.png" 
                   alt="Historical Image of GCU Department of Political Science"
                   fill
                   className="object-cover rounded-lg"

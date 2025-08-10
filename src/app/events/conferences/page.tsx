@@ -23,7 +23,7 @@ export default function ConferencesPage() {
             <div className="md:w-1/3 mb-6 md:mb-0">
               <div className="relative h-60 w-full">
                 <Image 
-                  src="/images/conference-hall.jpg" 
+                  src="/images/slide1.jpg" 
                   alt="Academic Conference"
                   fill
                   className="object-cover rounded-lg"
@@ -49,7 +49,7 @@ export default function ConferencesPage() {
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <div className="relative h-72 w-full mb-4">
                   <Image 
-                    src="/images/upcoming-conference.jpg" 
+                    src="/images/slide2.jpg" 
                     alt="International Conference on Democracy and Governance"
                     fill
                     className="object-cover rounded-md"
@@ -116,7 +116,7 @@ export default function ConferencesPage() {
                 <div className="md:w-1/4 mb-4 md:mb-0">
                   <div className="relative h-48 w-full">
                     <Image 
-                      src="/images/past-conference-1.jpg" 
+                      src="/images/slide1.jpg" 
                       alt="Foreign Policy Conference"
                       fill
                       className="object-cover rounded-md"
@@ -143,7 +143,7 @@ export default function ConferencesPage() {
                 <div className="md:w-1/4 mb-4 md:mb-0">
                   <div className="relative h-48 w-full">
                     <Image 
-                      src="/images/past-conference-2.jpg" 
+                      src="/images/slide2.jpg" 
                       alt="Electoral Politics Conference"
                       fill
                       className="object-cover rounded-md"
@@ -170,7 +170,7 @@ export default function ConferencesPage() {
                 <div className="md:w-1/4 mb-4 md:mb-0">
                   <div className="relative h-48 w-full">
                     <Image 
-                      src="/images/past-conference-3.jpg" 
+                      src="/images/slide3.jpg" 
                       alt="CPEC Conference"
                       fill
                       className="object-cover rounded-md"
