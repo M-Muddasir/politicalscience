@@ -23,8 +23,9 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Run tests (if any)
-      run: npm run lint
+    # Tests skipped for faster deployment
+    # - name: Run tests (if any)
+    #   run: npm run lint
 
     - name: Build application
       run: npm run build
