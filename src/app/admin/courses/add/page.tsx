@@ -201,7 +201,7 @@ export default function AddCoursePage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`bg-accent hover:bg-accent-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
+            className={`bg-accent hover:bg-accent-dark text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${
               isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
             }`}
           >

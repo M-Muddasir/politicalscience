@@ -28,6 +28,10 @@ jobs:
     #   run: npm run lint
 
     - name: Build application
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+        NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
       run: npm run build
 
     - name: Deploy to EC2
@@ -41,6 +45,9 @@ jobs:
           cd /var/www/politicalscience
           git pull origin main
           npm ci
+          echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" > .env
+          echo "NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }}" >> .env
+          echo "NEXTAUTH_URL=${{ secrets.NEXTAUTH_URL }}" >> .env
           npx prisma migrate deploy
           npm run build
           pm2 restart politicalscience || pm2 start npm --name "politicalscience" -- start
