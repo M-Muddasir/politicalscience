@@ -22,7 +22,7 @@ export default function SocietyEventsPage() {
           <Link href="/societies/events/debate-championship" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <div className="mb-4">
               <Image 
-                src="/images/debate-championship.jpg" 
+                src="/images/slide1.jpg" 
                 alt="Debate Championship"
                 width={400}
                 height={200}
@@ -39,7 +39,7 @@ export default function SocietyEventsPage() {
           <Link href="/societies/events/model-un-2023" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <div className="mb-4">
               <Image 
-                src="/images/model-un-conference.jpg" 
+                src="/images/slide2.jpg" 
                 alt="Model UN Conference"
                 width={400}
                 height={200}
@@ -56,7 +56,7 @@ export default function SocietyEventsPage() {
           <Link href="/societies/events/policy-symposium" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
             <div className="mb-4">
               <Image 
-                src="/images/policy-symposium.jpg" 
+                src="/images/slide3.jpg" 
                 alt="Policy Symposium"
                 width={400}
                 height={200}

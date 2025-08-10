@@ -47,7 +47,7 @@ export default function PolicySymposiumPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/policy-symposium.jpg" 
+                src="/images/slide3.jpg" 
                 alt="Policy Research Symposium"
                 fill
                 className="object-cover"

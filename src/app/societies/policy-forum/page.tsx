@@ -36,7 +36,7 @@ export default function PolicyForumPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/policy-forum.jpg" 
+                src="/images/slide3.jpg" 
                 alt="Policy Forum"
                 fill
                 className="object-cover"

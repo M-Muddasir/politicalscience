@@ -36,7 +36,7 @@ export default function DebateSocietyPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/debate-society.jpg" 
+                src="/images/slide1.jpg" 
                 alt="Debate Society"
                 fill
                 className="object-cover"

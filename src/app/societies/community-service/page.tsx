@@ -36,7 +36,7 @@ export default function CommunityServicePage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/community-service.jpg" 
+                src="/images/chairperson.jpeg" 
                 alt="Community Service Society"
                 fill
                 className="object-cover"

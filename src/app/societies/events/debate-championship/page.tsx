@@ -47,7 +47,7 @@ export default function DebateChampionshipPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/debate-championship.jpg" 
+                src="/images/slide1.jpg" 
                 alt="Debate Championship"
                 fill
                 className="object-cover"

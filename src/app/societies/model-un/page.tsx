@@ -36,7 +36,7 @@ export default function ModelUNPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-auto">
               <Image 
-                src="/images/model-un.jpg" 
+                src="/images/slide2.jpg" 
                 alt="Model UN Society"
                 fill
                 className="object-cover"

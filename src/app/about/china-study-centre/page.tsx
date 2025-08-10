@@ -23,7 +23,7 @@ export default function ChinaStudyCentrePage() {
             <div className="md:w-1/2 mb-6 md:mb-0">
               <div className="relative h-72 w-full">
                 <Image 
-                  src="/images/china-study-centre.jpg" 
+                  src="/images/gcu-vc.png" 
                   alt="China Study Centre"
                   fill
                   className="object-cover rounded-lg"
