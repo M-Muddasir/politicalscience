@@ -52,8 +52,9 @@ function formatDate(dateString: string | Date) {
   });
 }
 
-export default async function NewsDetailPage({ params }: { params: { id: string } }) {
-  const post = await getNewsPost(params.id);
+export default async function NewsDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = await getNewsPost(id);
   
   if (!post) {
     return notFound();

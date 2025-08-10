@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import DataTable, { Column } from '@/components/admin/DataTable';
 import Image from 'next/image';
 
@@ -30,7 +28,6 @@ export default function AdminFacultyPage() {
   const [faculty, setFaculty] = useState<Faculty[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const router = useRouter();
 
   // Fetch faculty list
   useEffect(() => {

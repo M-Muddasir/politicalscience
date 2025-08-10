@@ -20,14 +20,15 @@ type Program = {
   departmentId: string;
 };
 
-export default function EditProgramPage({ params }: { params: { id: string } }) {
+export default function EditProgramPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [departments, setDepartments] = useState<Department[]>([]);
+  const [programId, setProgramId] = useState<string>('');
   const [formData, setFormData] = useState<Program>({
-    id: parseInt(params.id),
+    id: 0,
     name: '',
     degreeType: '',
     description: '',
@@ -37,12 +38,23 @@ export default function EditProgramPage({ params }: { params: { id: string } }) 
     departmentId: ''
   });
 
+  // Resolve params Promise
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolvedParams = await params;
+      setProgramId(resolvedParams.id);
+    };
+    resolveParams();
+  }, [params]);
+
   // Fetch program data and departments
   useEffect(() => {
+    if (!programId) return;
+    
     const fetchData = async () => {
       try {
         // Fetch program details
-        const programResponse = await fetch(`/api/programs/${params.id}`);
+        const programResponse = await fetch(`/api/programs/${programId}`);
         if (!programResponse.ok) {
           throw new Error('Failed to fetch program data');
         }
@@ -60,7 +72,7 @@ export default function EditProgramPage({ params }: { params: { id: string } }) 
           departmentsData.find((dept: Department) => dept.name.includes('Political Science')) : null;
         
         setFormData({
-          id: programData.id,
+          id: parseInt(programId),
           name: programData.name || '',
           degreeType: programData.degreeType || '',
           description: programData.description || '',
@@ -80,7 +92,7 @@ export default function EditProgramPage({ params }: { params: { id: string } }) 
     };
 
     fetchData();
-  }, [params.id]);
+  }, [programId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

@@ -56,8 +56,9 @@ function formatEventDate(dateString: string | Date) {
   });
 }
 
-export default async function EventDetailPage({ params }: { params: { id: string } }) {
-  const event = await getEvent(params.id);
+export default async function EventDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const event = await getEvent(id);
   
   if (!event) {
     return notFound();

@@ -11,7 +11,7 @@ async function getFacultMember(id: string) {
   try {
     const facultyMember = await prisma.faculty.findUnique({
       where: {
-        id: Number(id)
+        id: id
       },
     });
     return facultyMember;
@@ -21,8 +21,9 @@ async function getFacultMember(id: string) {
   }
 }
 
-export default async function FacultyDetailPage({ params }: { params: { id: string } }) {
-  const facultyMember = await getFacultMember(params.id);
+export default async function FacultyDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const facultyMember = await getFacultMember(id);
 
   if (!facultyMember) {
     notFound();
@@ -60,7 +61,7 @@ export default async function FacultyDetailPage({ params }: { params: { id: stri
           {/* Faculty Information */}
           <div className="md:w-2/3 p-8">
             <h1 className="text-3xl font-bold text-primary mb-2">{facultyMember.name}</h1>
-            <p className="text-xl text-secondary font-medium mb-6">{facultyMember.title}</p>
+            <p className="text-xl text-secondary font-medium mb-6">{facultyMember.designation}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -78,16 +79,14 @@ export default async function FacultyDetailPage({ params }: { params: { id: stri
               <div>
                 <h2 className="text-lg font-semibold text-primary mb-3">Academic Background</h2>
                 <p className="text-gray-700 mb-2">
-                  <span className="font-medium">Education:</span> {facultyMember.education}
+                  <span className="font-medium">Designation:</span> {facultyMember.designation}
                 </p>
                 <p className="text-gray-700 mb-2">
-                  <span className="font-medium">Specialization:</span> {facultyMember.specialization}
+                  <span className="font-medium">Expertise:</span> {facultyMember.expertise}
                 </p>
-                {facultyMember.joinDate && (
-                  <p className="text-gray-700 mb-2">
-                    <span className="font-medium">Joined:</span> {new Date(facultyMember.joinDate).toLocaleDateString()}
-                  </p>
-                )}
+                <p className="text-gray-700 mb-2">
+                  <span className="font-medium">Joined:</span> {new Date(facultyMember.createdAt).toLocaleDateString()}
+                </p>
               </div>
             </div>
 
@@ -101,7 +100,7 @@ export default async function FacultyDetailPage({ params }: { params: { id: stri
             <div className="mt-8">
               <h2 className="text-lg font-semibold text-primary mb-3">Research Interests</h2>
               <p className="text-gray-700">
-                The faculty member's detailed research interests and publications would be displayed here.
+                The faculty member&apos;s detailed research interests and publications would be displayed here.
               </p>
             </div>
           </div>

@@ -81,7 +81,7 @@ export default function ConferencesPage() {
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">International Conference on Democracy and Governance in South Asia</h3>
                 <p className="text-gray-500 mb-4">September 21-22, 2023 | Bukhari Auditorium, GCU Lahore</p>
                 <p className="text-gray-600 mb-4">
-                  We are pleased to announce our upcoming international conference on "Democracy and Governance in South Asia: Challenges and Opportunities." This two-day conference aims to explore various aspects of democratic systems, governance models, and policy frameworks in South Asian countries.
+                  We are pleased to announce our upcoming international conference on &ldquo;Democracy and Governance in South Asia: Challenges and Opportunities.&rdquo; This two-day conference aims to explore various aspects of democratic systems, governance models, and policy frameworks in South Asian countries.
                 </p>
                 <h4 className="text-lg font-semibold text-gray-800 mb-2">Conference Themes</h4>
                 <ul className="list-disc list-inside space-y-1 text-gray-600 mb-4 pl-4">
@@ -124,10 +124,10 @@ export default function ConferencesPage() {
                   </div>
                 </div>
                 <div className="md:w-3/4">
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">Pakistan's Foreign Policy: Challenges and Opportunities</h3>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">Pakistan&apos;s Foreign Policy: Challenges and Opportunities</h3>
                   <p className="text-gray-500 mb-3">May 18-19, 2022 | Bukhari Auditorium</p>
                   <p className="text-gray-600 mb-3">
-                    This conference examined Pakistan's foreign policy challenges and opportunities in the evolving global order. It featured presentations on Pakistan's relations with major powers, regional dynamics, and economic diplomacy.
+                    This conference examined Pakistan&apos;s foreign policy challenges and opportunities in the evolving global order. It featured presentations on Pakistan&apos;s relations with major powers, regional dynamics, and economic diplomacy.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a href="#" className="text-sm text-accent hover:underline">Conference Report</a>
@@ -154,7 +154,7 @@ export default function ConferencesPage() {
                   <h3 className="text-xl font-bold text-gray-800 mb-2">Electoral Politics and Democratic Consolidation in Pakistan</h3>
                   <p className="text-gray-500 mb-3">November 10-11, 2021 | GCU Examination Hall</p>
                   <p className="text-gray-600 mb-3">
-                    This conference analyzed the role of electoral politics in Pakistan's democratic consolidation. It included discussions on electoral systems, political parties, voter behavior, and electoral reforms.
+                    This conference analyzed the role of electoral politics in Pakistan&apos;s democratic consolidation. It included discussions on electoral systems, political parties, voter behavior, and electoral reforms.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a href="#" className="text-sm text-accent hover:underline">Conference Report</a>
@@ -205,7 +205,7 @@ export default function ConferencesPage() {
             The Department of Political Science welcomes proposals for hosting academic conferences, symposia, and workshops. If you have an idea for a conference that aligns with our academic focus areas, we encourage you to submit a proposal.
           </p>
           <p className="text-gray-600 mb-6">
-            Proposals should include the conference theme, objectives, target audience, potential speakers, and funding requirements. The department's Conference Committee reviews proposals quarterly.
+            Proposals should include the conference theme, objectives, target audience, potential speakers, and funding requirements. The department&apos;s Conference Committee reviews proposals quarterly.
           </p>
           <div className="text-center">
             <Link href="/events/conferences/submit-proposal" className="inline-block bg-accent text-black hover:bg-accent-dark px-6 py-2 rounded-md transition-colors">

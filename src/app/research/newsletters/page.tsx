@@ -63,7 +63,7 @@ export default function NewslettersPage() {
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Summer 2023</h3>
               <p className="text-gray-500 text-sm mb-4">April - June 2023</p>
               <p className="text-gray-600 mb-4">
-                Featuring highlights from our international conference on "Democracy and Governance in South Asia," faculty research updates, and student achievements.
+                Featuring highlights from our international conference on &ldquo;Democracy and Governance in South Asia,&rdquo; faculty research updates, and student achievements.
               </p>
               <a href="#" className="text-accent hover:underline">Read Newsletter →</a>
             </div>

@@ -67,7 +67,7 @@ export default function HistoryPage() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">Post-Independence Era</h3>
                   <p className="text-gray-600">
-                    After Pakistan's independence, the department played a crucial role in developing political science education focused on the newly formed state's political system.
+                    After Pakistan&apos;s independence, the department played a crucial role in developing political science education focused on the newly formed state&apos;s political system.
                   </p>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function HistoryPage() {
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">University Status</h3>
                   <p className="text-gray-600">
-                    With GCU's elevation to university status, the department expanded its academic offerings to include MPhil and PhD programs.
+                    With GCU&apos;s elevation to university status, the department expanded its academic offerings to include MPhil and PhD programs.
                   </p>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function HistoryPage() {
             Throughout its history, the Department of Political Science at GCU Lahore has maintained a tradition of academic excellence and intellectual rigor. It has consistently produced graduates who have gone on to make significant contributions in academia, politics, diplomacy, and public service.
           </p>
           <p className="text-gray-600">
-            The department's commitment to quality education, research, and community engagement has established it as one of the premier institutions for political science studies in Pakistan. As we move forward, we continue to build on this rich legacy while adapting to the evolving landscape of political studies in the 21st century.
+            The department&apos;s commitment to quality education, research, and community engagement has established it as one of the premier institutions for political science studies in Pakistan. As we move forward, we continue to build on this rich legacy while adapting to the evolving landscape of political studies in the 21st century.
           </p>
         </div>
 

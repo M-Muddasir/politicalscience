@@ -12,21 +12,33 @@ type ViceChancellorMessage = {
   imageUrl: string | null;
 };
 
-export default function EditViceChancellorMessagePage({ params }: { params: { id: string } }) {
+export default function EditViceChancellorMessagePage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [messageId, setMessageId] = useState<string>('');
   const [formData, setFormData] = useState<ViceChancellorMessage>({
-    id: params.id,
+    id: '',
     name: '',
     title: '',
     message: '',
     imageUrl: '',
   });
 
+  // Resolve params Promise
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolvedParams = await params;
+      setMessageId(resolvedParams.id);
+    };
+    resolveParams();
+  }, [params]);
+
   // Fetch message data
   useEffect(() => {
+    if (!messageId) return;
+    
     const fetchData = async () => {
       try {
         // Fetch message details
@@ -36,7 +48,7 @@ export default function EditViceChancellorMessagePage({ params }: { params: { id
         }
         const messagesData = await messageResponse.json();
         const messageData = Array.isArray(messagesData) ? 
-          messagesData.find((msg: ViceChancellorMessage) => msg.id === params.id) : null;
+          messagesData.find((msg: ViceChancellorMessage) => msg.id === messageId) : null;
         
         if (!messageData) {
           throw new Error('Message not found');
@@ -59,7 +71,7 @@ export default function EditViceChancellorMessagePage({ params }: { params: { id
     };
 
     fetchData();
-  }, [params.id]);
+  }, [messageId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

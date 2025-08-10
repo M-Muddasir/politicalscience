@@ -4,12 +4,13 @@ import { NextRequest, NextResponse } from 'next/server';
 // GET single program
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } } // <-- `id` comes in as a string
+  { params }: { params: Promise<{ id: string }> } // <-- `id` comes in as a string
 ) {
   try {
+    const { id } = await params;
     const program = await prisma.program.findUnique({
       where: {
-        id: parseInt(params.id), // Convert to number
+        id: parseInt(id), // Convert to number
       },
     });
 
@@ -27,13 +28,14 @@ export async function GET(
 // PATCH to update program
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await request.json();
     const program = await prisma.program.update({
       where: {
-        id: parseInt(params.id),
+        id: parseInt(id),
       },
       data,
     });
@@ -47,12 +49,13 @@ export async function PATCH(
 // DELETE program
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     await prisma.program.delete({
       where: {
-        id: parseInt(params.id),
+        id: parseInt(id),
       },
     });
     return NextResponse.json({ message: 'Program deleted successfully' });

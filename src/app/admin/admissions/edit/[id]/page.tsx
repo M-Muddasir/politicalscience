@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, FormEvent } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useState, useEffect, FormEvent } from "react";
+import { useRouter, useParams } from "next/navigation";
+import Link from "next/link";
 
 type Program = {
   id: string;
@@ -21,110 +21,123 @@ type ContactSubmission = {
   createdAt: string;
 };
 
-export default function EditAdmissionPage({ params }: { params: { id: string } }) {
+export default function EditAdmissionPage() {
   const router = useRouter();
+  const { id } = useParams<{ id: string }>();
+
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
   const [programs, setPrograms] = useState<Program[]>([]);
   const [formData, setFormData] = useState<ContactSubmission>({
-    id: params.id,
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    programId: '',
-    status: 'Pending',
-    adminNotes: '',
-    createdAt: new Date().toISOString()
+    id,
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    programId: "",
+    status: "Pending",
+    adminNotes: "",
+    createdAt: new Date().toISOString(),
   });
 
-  // Define status options
-  const statusOptions = ['Pending', 'Contacted', 'Enrolled', 'Rejected', 'Archived'];
+  const statusOptions = [
+    "Pending",
+    "Contacted",
+    "Enrolled",
+    "Rejected",
+    "Archived",
+  ];
 
-  // Fetch submission data and programs
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch submission details
-        const submissionResponse = await fetch(`/api/admissions/${params.id}`);
-        if (!submissionResponse.ok) {
-          throw new Error('Failed to fetch submission data');
-        }
-        const submissionData = await submissionResponse.json();
-        
-        // Fetch programs for the dropdown
-        const programsResponse = await fetch('/api/programs');
-        if (!programsResponse.ok) {
-          throw new Error('Failed to fetch programs');
-        }
-        const programsData = await programsResponse.json();
-        
+        const [submissionRes, programsRes] = await Promise.all([
+          fetch(`/api/admissions/${id}`),
+          fetch("/api/programs"),
+        ]);
+
+        if (!submissionRes.ok) throw new Error("Failed to fetch submission");
+        if (!programsRes.ok) throw new Error("Failed to fetch programs");
+
+        const [submissionData, programsData] = await Promise.all([
+          submissionRes.json(),
+          programsRes.json(),
+        ]);
+
         setFormData({
           id: submissionData.id,
-          name: submissionData.name || '',
-          email: submissionData.email || '',
-          phone: submissionData.phone || '',
-          message: submissionData.message || '',
-          programId: submissionData.programId || '',
-          status: submissionData.status || 'Pending',
-          adminNotes: submissionData.adminNotes || '',
-          createdAt: submissionData.createdAt
+          name: submissionData.name || "",
+          email: submissionData.email || "",
+          phone: submissionData.phone || "",
+          message: submissionData.message || "",
+          programId: submissionData.programId || "",
+          status: submissionData.status || "Pending",
+          adminNotes: submissionData.adminNotes || "",
+          createdAt: submissionData.createdAt,
         });
-        
+
         setPrograms(Array.isArray(programsData) ? programsData : []);
-        setIsLoading(false);
       } catch (err) {
-        console.error('Error fetching data:', err);
-        setErrorMessage('Failed to load data');
+        console.error(err);
+        setErrorMessage(
+          err instanceof Error ? err.message : "Failed to load data"
+        );
+      } finally {
         setIsLoading(false);
       }
     };
 
     fetchData();
-  }, [params.id]);
+  }, [id]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setErrorMessage('');
+    setErrorMessage("");
 
     try {
-      const response = await fetch('/api/admissions', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch(`/api/admissions/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(error.message || 'Failed to update submission');
+        throw new Error(error.message || "Failed to update submission");
       }
 
-      router.push('/admin/admissions');
+      router.push("/admin/admissions");
       router.refresh();
-    } catch (err: any) {
-      console.error('Error updating submission:', err);
-      setErrorMessage(err.message || 'An error occurred while updating the submission');
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(
+        err instanceof Error
+          ? err.message
+          : "An error occurred while updating"
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return "Unknown date";
+    return new Date(dateString).toLocaleString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
@@ -155,88 +168,89 @@ export default function EditAdmissionPage({ params }: { params: { id: string } }
       )}
 
       <div className="mb-6">
-        <h3 className="text-lg font-medium text-gray-700 mb-2">Submission Details</h3>
-        <p className="text-sm text-gray-500 mb-1">Received on: {formatDate(formData.createdAt)}</p>
+        <h3 className="text-lg font-medium text-gray-700 mb-2">
+          Submission Details
+        </h3>
+        <p className="text-sm text-gray-500">
+          Received on: {formatDate(formData.createdAt)}
+        </p>
       </div>
 
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Name */}
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Full Name
             </label>
             <input
               type="text"
-              id="name"
               name="name"
               value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent bg-gray-50"
               readOnly
+              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50"
             />
           </div>
 
+          {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
               type="email"
-              id="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent bg-gray-50"
               readOnly
+              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50"
             />
           </div>
 
+          {/* Phone */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Phone Number
             </label>
             <input
               type="text"
-              id="phone"
               name="phone"
-              value={formData.phone || ''}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent bg-gray-50"
+              value={formData.phone || ""}
               readOnly
+              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50"
             />
           </div>
 
+          {/* Program */}
           <div>
-            <label htmlFor="programId" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Program
             </label>
             <select
-              id="programId"
               name="programId"
-              value={formData.programId || ''}
+              value={formData.programId || ""}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
             >
               <option value="">General Inquiry (No Program)</option>
-              {programs.map((program) => (
-                <option key={program.id} value={program.id}>
-                  {program.name}
+              {programs.map((p) => (
+                <option key={p.id} value={p.id}>
+                  {p.name}
                 </option>
               ))}
             </select>
           </div>
 
+          {/* Status */}
           <div>
-            <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Status *
             </label>
             <select
-              id="status"
               name="status"
               required
               value={formData.status}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
             >
               {statusOptions.map((status) => (
                 <option key={status} value={status}>
@@ -245,35 +259,34 @@ export default function EditAdmissionPage({ params }: { params: { id: string } }
               ))}
             </select>
           </div>
-          
+
+          {/* Message */}
           <div className="md:col-span-2">
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Original Message
             </label>
             <textarea
-              id="message"
               name="message"
               rows={5}
               value={formData.message}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent bg-gray-50"
               readOnly
-            ></textarea>
+              className="w-full px-3 py-2 border border-gray-300 rounded-md bg-gray-50"
+            />
           </div>
 
+          {/* Admin Notes */}
           <div className="md:col-span-2">
-            <label htmlFor="adminNotes" className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               Admin Notes
             </label>
             <textarea
-              id="adminNotes"
               name="adminNotes"
               rows={5}
-              value={formData.adminNotes || ''}
+              value={formData.adminNotes || ""}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-accent focus:border-accent"
-              placeholder="Add notes about communication with the applicant, decisions, etc."
-            ></textarea>
+              placeholder="Add notes about communication, decisions, etc."
+              className="w-full px-3 py-2 border border-gray-300 rounded-md"
+            />
           </div>
         </div>
 
@@ -287,9 +300,9 @@ export default function EditAdmissionPage({ params }: { params: { id: string } }
           <button
             type="submit"
             disabled={isSubmitting}
-            className="px-6 py-2 bg-accent text-black rounded hover:bg-accent-dark transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-2 bg-accent text-black rounded hover:bg-accent-dark disabled:opacity-50"
           >
-            {isSubmitting ? 'Saving...' : 'Update Status'}
+            {isSubmitting ? "Saving..." : "Update Status"}
           </button>
         </div>
       </form>

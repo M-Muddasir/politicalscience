@@ -1,7 +1,6 @@
 import React from 'react';
 import { prisma } from '@/lib/prisma';
 import Image from 'next/image';
-import Link from 'next/link';
 
 // This page will not be cached and will be regenerated on each request
 export const dynamic = 'force-dynamic';
@@ -40,7 +39,7 @@ export default async function FacultyPage() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {faculty.map((member) => (
+          {faculty.map((member: any) => (
             <div key={member.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
               <div className="h-64 relative overflow-hidden">
                 {member.imageUrl ? (

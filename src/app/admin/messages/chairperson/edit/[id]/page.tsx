@@ -18,14 +18,15 @@ type ChairpersonMessage = {
   departmentId: string;
 };
 
-export default function EditChairpersonMessagePage({ params }: { params: { id: string } }) {
+export default function EditChairpersonMessagePage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [departments, setDepartments] = useState<Department[]>([]);
+  const [messageId, setMessageId] = useState<string>('');
   const [formData, setFormData] = useState<ChairpersonMessage>({
-    id: params.id,
+    id: '',
     name: '',
     title: '',
     message: '',
@@ -33,8 +34,19 @@ export default function EditChairpersonMessagePage({ params }: { params: { id: s
     departmentId: ''
   });
 
+  // Resolve params Promise
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolvedParams = await params;
+      setMessageId(resolvedParams.id);
+    };
+    resolveParams();
+  }, [params]);
+
   // Fetch message data and departments
   useEffect(() => {
+    if (!messageId) return;
+    
     const fetchData = async () => {
       try {
         // Fetch message details
@@ -44,7 +56,7 @@ export default function EditChairpersonMessagePage({ params }: { params: { id: s
         }
         const messagesData = await messageResponse.json();
         const messageData = Array.isArray(messagesData) ? 
-          messagesData.find((msg: ChairpersonMessage) => msg.id === params.id) : null;
+          messagesData.find((msg: ChairpersonMessage) => msg.id === messageId) : null;
         
         if (!messageData) {
           throw new Error('Message not found');
@@ -76,7 +88,7 @@ export default function EditChairpersonMessagePage({ params }: { params: { id: s
     };
 
     fetchData();
-  }, [params.id]);
+  }, [messageId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

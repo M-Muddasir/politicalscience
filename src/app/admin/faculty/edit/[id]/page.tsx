@@ -24,7 +24,7 @@ type Faculty = {
   isActive: boolean;
 };
 
-export default function EditFacultyPage({ params }: { params: { id: string } }) {
+export default function EditFacultyPage() {
   const router = useRouter();
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);

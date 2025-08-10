@@ -15,13 +15,14 @@ type News = {
   imageUrl: string | null;
 };
 
-export default function EditNewsPage({ params }: { params: { id: string } }) {
+export default function EditNewsPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [newsId, setNewsId] = useState<string>('');
   const [formData, setFormData] = useState<News>({
-    id: params.id,
+    id: '',
     title: '',
     content: '',
     publishedAt: new Date().toISOString().split('T')[0],
@@ -30,12 +31,23 @@ export default function EditNewsPage({ params }: { params: { id: string } }) {
     imageUrl: ''
   });
 
+  // Resolve params Promise
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolvedParams = await params;
+      setNewsId(resolvedParams.id);
+    };
+    resolveParams();
+  }, [params]);
+
   // Fetch news data and departments
   useEffect(() => {
+    if (!newsId) return;
+    
     const fetchData = async () => {
       try {
         // Fetch news details
-        const newsResponse = await fetch(`/api/news/${params.id}`);
+        const newsResponse = await fetch(`/api/news/${newsId}`);
         if (!newsResponse.ok) {
           throw new Error('Failed to fetch news data');
         }
@@ -65,7 +77,7 @@ export default function EditNewsPage({ params }: { params: { id: string } }) {
     };
 
     fetchData();
-  }, [params.id]);
+  }, [newsId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;

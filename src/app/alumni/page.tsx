@@ -36,7 +36,7 @@ export default function AlumniPage() {
                 The Department of Political Science at GCU Lahore takes immense pride in its alumni network, which spans across various sectors including politics, diplomacy, academia, civil service, journalism, and non-governmental organizations.
               </p>
               <p className="text-gray-600">
-                Our graduates have made significant contributions to society at national and international levels. Many have served in key positions in government, international organizations, research institutions, and universities worldwide. The department maintains strong connections with its alumni, fostering a community that supports current students and enhances the department's reputation and influence.
+                Our graduates have made significant contributions to society at national and international levels. Many have served in key positions in government, international organizations, research institutions, and universities worldwide. The department maintains strong connections with its alumni, fostering a community that supports current students and enhances the department&apos;s reputation and influence.
               </p>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default function AlumniPage() {
                 <p className="text-accent font-medium">Former Ambassador to the United Nations</p>
               </div>
               <p className="text-gray-600 text-center">
-                A distinguished diplomat who served as Pakistan's Permanent Representative to the United Nations from 2008 to 2012. He has also served as ambassador to several countries and has been a key figure in Pakistan's foreign policy establishment.
+                A distinguished diplomat who served as Pakistan&apos;s Permanent Representative to the United Nations from 2008 to 2012. He has also served as ambassador to several countries and has been a key figure in Pakistan&apos;s foreign policy establishment.
               </p>
             </div>
 
@@ -98,7 +98,7 @@ export default function AlumniPage() {
                 <p className="text-accent font-medium">Secretary, Ministry of Foreign Affairs</p>
               </div>
               <p className="text-gray-600 text-center">
-                A career diplomat who has risen through the ranks to become the Secretary of the Ministry of Foreign Affairs. He has played a crucial role in shaping Pakistan's foreign policy, especially regarding regional cooperation and economic diplomacy.
+                A career diplomat who has risen through the ranks to become the Secretary of the Ministry of Foreign Affairs. He has played a crucial role in shaping Pakistan&apos;s foreign policy, especially regarding regional cooperation and economic diplomacy.
               </p>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function AlumniPage() {
               <div className="border-b border-gray-200 pb-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Making a Global Impact</h3>
                 <p className="text-gray-600">
-                  Learn about Dr. Rashid Khan's journey from GCU to the United Nations, where he now leads important initiatives on climate policy and sustainable development.
+                  Learn about Dr. Rashid Khan&apos;s journey from GCU to the United Nations, where he now leads important initiatives on climate policy and sustainable development.
                 </p>
                 <a href="#" className="text-accent hover:underline mt-2 inline-block">Read Full Story</a>
               </div>
@@ -132,7 +132,7 @@ export default function AlumniPage() {
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">Academic Excellence</h3>
                 <p className="text-gray-600">
-                  Discover how Prof. Zainab Ahmed's research at Harvard University is changing the discourse on South Asian politics and influencing policy decisions.
+                  Discover how Prof. Zainab Ahmed&apos;s research at Harvard University is changing the discourse on South Asian politics and influencing policy decisions.
                 </p>
                 <a href="#" className="text-accent hover:underline mt-2 inline-block">Read Full Story</a>
               </div>
@@ -206,7 +206,7 @@ export default function AlumniPage() {
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Donate</h3>
               <p className="text-gray-600">
-                Support the department's educational and research initiatives through financial contributions.
+                Support the department&apos;s educational and research initiatives through financial contributions.
               </p>
               <Link href="/alumni/donate" className="text-accent hover:underline mt-4 inline-block">Make a Donation</Link>
             </div>

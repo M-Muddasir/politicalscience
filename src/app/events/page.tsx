@@ -85,7 +85,7 @@ export default async function EventsPage() {
             </div>
           ) : (
             <div className="space-y-8">
-              {upcomingEvents.map((event, index) => (
+              {upcomingEvents.map((event: any, index: number) => (
                 <div key={event.id} className={`flex flex-col md:flex-row ${index === 0 ? 'bg-accent bg-opacity-5' : 'border border-gray-200'} rounded-lg overflow-hidden`}>
                   <div className="relative md:w-1/4 h-48 md:h-auto">
                     {event.imageUrl ? (
@@ -192,7 +192,7 @@ export default async function EventsPage() {
             </div>
           ) : (
             <div className="space-y-6">
-              {pastEvents.map((event) => (
+              {pastEvents.map((event: any) => (
                 <div key={event.id} className="border-b border-gray-200 pb-6">
                   <h3 className="text-xl font-bold text-gray-800 mb-2">{event.title}</h3>
                   <p className="text-gray-500 mb-3">
@@ -223,7 +223,7 @@ export default async function EventsPage() {
         <div className="bg-accent bg-opacity-5 p-8 rounded-lg shadow-md mb-12">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Host an Event with Us</h2>
           <p className="text-gray-600 mb-6">
-            If you are interested in hosting an event in collaboration with the Department of Political Science, we welcome your proposals. Whether it's a conference, seminar, workshop, or guest lecture, we are open to partnerships that align with our academic goals and values.
+            If you are interested in hosting an event in collaboration with the Department of Political Science, we welcome your proposals. Whether it&apos;s a conference, seminar, workshop, or guest lecture, we are open to partnerships that align with our academic goals and values.
           </p>
           <div className="text-center">
             <Link href="/contact" className="inline-block bg-accent text-black hover:bg-accent-dark px-6 py-2 rounded-md transition-colors">

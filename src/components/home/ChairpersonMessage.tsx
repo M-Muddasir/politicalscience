@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link'; // Removed unused import
 
 interface ChairpersonMessageProps {
   name?: string;
@@ -37,7 +37,7 @@ const ChairpersonMessage: React.FC<ChairpersonMessageProps> = ({
             <div className="prose max-w-none">
               <p className="text-gray-700 leading-relaxed mb-6">{message}</p>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Under our department's guidance, students gain a deep understanding of political systems, international relations, and governance. Our faculty comprises dedicated scholars committed to academic excellence and student success.
+                Under our department&apos;s guidance, students gain a deep understanding of political systems, international relations, and governance. Our faculty comprises dedicated scholars committed to academic excellence and student success.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We invite you to explore our programs and join our vibrant academic community.

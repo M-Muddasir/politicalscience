@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation'; // Removed unused import
 
 interface Program {
   id: number;
@@ -14,7 +14,6 @@ interface AdmissionFormProps {
 }
 
 const AdmissionForm: React.FC<AdmissionFormProps> = ({ programs }) => {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     name: '',
     email: '',

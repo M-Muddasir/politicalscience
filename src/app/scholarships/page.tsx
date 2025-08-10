@@ -70,7 +70,7 @@ export default function ScholarshipsPage() {
               </div>
 
               <div className="border-l-4 border-accent pl-4">
-                <h4 className="text-lg font-semibold text-gray-800 mb-2">Vice Chancellor's Merit Scholarship</h4>
+                <h4 className="text-lg font-semibold text-gray-800 mb-2">Vice Chancellor&apos;s Merit Scholarship</h4>
                 <p className="text-gray-600 mb-2">
                   Prestigious scholarship awarded to exceptional students across all departments.
                 </p>
@@ -181,7 +181,7 @@ export default function ScholarshipsPage() {
             </p>
             <div className="space-y-4">
               <div className="border-l-4 border-accent pl-4">
-                <h4 className="text-lg font-semibold text-gray-800 mb-1">Prime Minister's Fee Reimbursement Scheme</h4>
+                <h4 className="text-lg font-semibold text-gray-800 mb-1">Prime Minister&apos;s Fee Reimbursement Scheme</h4>
                 <p className="text-gray-600 mb-1">For students from less developed areas</p>
                 <a href="#" className="text-accent hover:underline">Learn More →</a>
               </div>
@@ -251,7 +251,7 @@ export default function ScholarshipsPage() {
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Contact Scholarship Office</h2>
           <p className="text-gray-600 mb-6">
-            For more information about scholarships or assistance with the application process, please contact the Department's Scholarship Office.
+            For more information about scholarships or assistance with the application process, please contact the Department&apos;s Scholarship Office.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>

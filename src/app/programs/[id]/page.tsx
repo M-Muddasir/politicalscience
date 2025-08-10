@@ -20,8 +20,9 @@ async function getProgram(id: string) {
   }
 }
 
-export default async function ProgramDetailPage({ params }: { params: { id: string } }) {
-  const program = await getProgram(params.id);
+export default async function ProgramDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const program = await getProgram(id);
   
   if (!program) {
     notFound();

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 // Import home page components
 import HeroSection from '@/components/home/HeroSection';
@@ -42,28 +43,28 @@ export default function Home() {
             <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:scale-105">
               <h3 className="text-xl font-semibold text-primary mb-3">BS Political Science</h3>
               <p className="text-gray-700 mb-4">4-year bachelor program covering political theory, international relations, and governance.</p>
-              <a href="/programs/bs" className="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+              <Link href="/programs/bs" className="text-primary hover:text-primary-dark font-medium">Learn More →</Link>
             </div>
             
             {/* MA Program */}
             <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:scale-105">
               <h3 className="text-xl font-semibold text-primary mb-3">MA Political Science</h3>
               <p className="text-gray-700 mb-4">2-year master program with advanced coursework in political analysis and research.</p>
-              <a href="/programs/ma" className="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+              <Link href="/programs/ma" className="text-primary hover:text-primary-dark font-medium">Learn More →</Link>
             </div>
             
             {/* MPhil Program */}
             <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:scale-105">
               <h3 className="text-xl font-semibold text-primary mb-3">MPhil Political Science</h3>
               <p className="text-gray-700 mb-4">Research-focused program developing specialized knowledge and analytical skills.</p>
-              <a href="/programs/mphil" className="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+              <Link href="/programs/mphil" className="text-primary hover:text-primary-dark font-medium">Learn More →</Link>
             </div>
             
             {/* PhD Program */}
             <div className="bg-white p-6 rounded-lg shadow-md transition-transform hover:scale-105">
               <h3 className="text-xl font-semibold text-primary mb-3">PhD Political Science</h3>
               <p className="text-gray-700 mb-4">Doctoral program for advanced research and academic expertise in the field.</p>
-              <a href="/programs/phd" className="text-primary hover:text-primary-dark font-medium">Learn More →</a>
+              <Link href="/programs/phd" className="text-primary hover:text-primary-dark font-medium">Learn More →</Link>
             </div>
           </div>
         </section>
@@ -74,27 +75,27 @@ export default function Home() {
           <div className="bg-primary text-black p-8 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-3">Admissions</h3>
             <p className="mb-4">Ready to join us? Explore our admission criteria, process, and deadlines.</p>
-            <a href="/admissions" className="inline-block bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
+            <Link href="/admissions" className="inline-block bg-white text-primary hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
               Apply Now
-            </a>
+            </Link>
           </div>
           
           {/* Journal */}
           <div className="bg-secondary text-black p-8 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-3">QJPSS Journal</h3>
             <p className="mb-4">Discover our quarterly academic journal featuring scholarly articles and research.</p>
-            <a href="/qjpss" className="inline-block bg-white text-secondary hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
+            <Link href="/qjpss" className="inline-block bg-white text-secondary hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
               Explore Journal
-            </a>
+            </Link>
           </div>
           
           {/* Events & Activities */}
           <div className="bg-accent text-black p-8 rounded-lg shadow-md">
             <h3 className="text-xl font-semibold mb-3">Events & Activities</h3>
             <p className="mb-4">Stay updated with our academic events, conferences, and student activities.</p>
-            <a href="/events" className="inline-block bg-white text-accent hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
+            <Link href="/events" className="inline-block bg-white text-accent hover:bg-gray-100 font-medium py-2 px-4 rounded transition duration-300">
               View Calendar
-            </a>
+            </Link>
           </div>
         </section>
       </div>

@@ -4,11 +4,11 @@ import { NextRequest, NextResponse } from 'next/server';
 // GET single faculty
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     // Ensure params is used after being fully resolved
-    const id = params.id;
+    const { id } = await params;
     
     const faculty = await prisma.faculty.findUnique({
       where: {
@@ -21,7 +21,7 @@ export async function GET(
     }
     
     return NextResponse.json({ faculty });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to fetch faculty' }, { status: 500 });
   }
 }
@@ -29,11 +29,11 @@ export async function GET(
 // PUT/PATCH update faculty
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await request.json();
-    const id = params.id;
     
     const faculty = await prisma.faculty.update({
       where: {
@@ -42,7 +42,7 @@ export async function PATCH(
       data
     });
     return NextResponse.json({ faculty });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to update faculty' }, { status: 500 });
   }
 }
@@ -50,10 +50,10 @@ export async function PATCH(
 // DELETE faculty
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = params.id;
+    const { id } = await params;
     
     await prisma.faculty.delete({
       where: {
@@ -61,7 +61,7 @@ export async function DELETE(
       }
     });
     return NextResponse.json({ message: 'Faculty deleted successfully' });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ error: 'Failed to delete faculty' }, { status: 500 });
   }
 }

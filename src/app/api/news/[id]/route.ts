@@ -4,12 +4,13 @@ import { NextRequest, NextResponse } from 'next/server';
 // GET single news item
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const newsItem = await prisma.news.findUnique({
       where: {
-        id: params.id
+        id: id
       }
     });
     
@@ -18,43 +19,45 @@ export async function GET(
     }
     
     return NextResponse.json({ newsItem });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch news item' }, { status: 500 });
+  } catch {
+    return NextResponse.json({ error: 'Failed to fetch news' }, { status: 500 });
   }
 }
 
 // PUT/PATCH update news
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const data = await request.json();
     const newsItem = await prisma.news.update({
       where: {
-        id: params.id
+        id: id
       },
       data
     });
     return NextResponse.json({ newsItem });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to update news item' }, { status: 500 });
+  } catch {
+    return NextResponse.json({ error: 'Failed to update news' }, { status: 500 });
   }
 }
 
 // DELETE news
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     await prisma.news.delete({
       where: {
-        id: params.id
+        id: id
       }
     });
     return NextResponse.json({ message: 'News item deleted successfully' });
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to delete news item' }, { status: 500 });
+  } catch {
+    return NextResponse.json({ error: 'Failed to delete news' }, { status: 500 });
   }
 }

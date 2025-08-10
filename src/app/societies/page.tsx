@@ -57,7 +57,7 @@ export default function SocietiesPage() {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-800 mb-2">Political Science Debate Society</h3>
                 <p className="text-gray-600 mb-4">
-                  Founded in 1998, the Debate Society is one of the oldest and most prestigious student organizations at GCU. It focuses on developing students' public speaking, critical thinking, and argumentation skills through regular debates, competitions, and workshops.
+                  Founded in 1998, the Debate Society is one of the oldest and most prestigious student organizations at GCU. It focuses on developing students&apos; public speaking, critical thinking, and argumentation skills through regular debates, competitions, and workshops.
                 </p>
                 <div className="mb-4">
                   <h4 className="font-semibold text-gray-800 mb-2">Key Activities:</h4>

@@ -6,7 +6,8 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const limit = searchParams.get('limit') ? parseInt(searchParams.get('limit')!) : undefined;
-    const programId = searchParams.get('programId') || undefined;
+    const programIdParam = searchParams.get('programId');
+    const programId = programIdParam ? parseInt(programIdParam) : undefined;
     const status = searchParams.get('status') || undefined;
     
     const submissions = await prisma.contactSubmission.findMany({

@@ -140,7 +140,7 @@ export default async function AdmissionsPage() {
             <div>
               <h3 className="text-xl font-semibold text-primary mb-3">Graduate Programs</h3>
               <ul className="list-disc list-inside space-y-2 text-gray-700">
-                <li>Bachelor's/Master's degree in relevant field with minimum 60% marks</li>
+                <li>Bachelor&apos;s/Master&apos;s degree in relevant field with minimum 60% marks</li>
                 <li>Pass the departmental admission test</li>
                 <li>Research proposal (for MPhil/PhD)</li>
                 <li>Interview performance</li>

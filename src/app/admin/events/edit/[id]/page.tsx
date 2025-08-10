@@ -20,14 +20,15 @@ type Event = {
   departmentId: string | null;
 };
 
-export default function EditEventPage({ params }: { params: { id: string } }) {
+export default function EditEventPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [departments, setDepartments] = useState<Department[]>([]);
+  const [eventId, setEventId] = useState<string>('');
   const [formData, setFormData] = useState<Event>({
-    id: params.id,
+    id: '',
     title: '',
     description: '',
     eventType: '',
@@ -40,12 +41,23 @@ export default function EditEventPage({ params }: { params: { id: string } }) {
   // Event type options
   const eventTypes = ['Conference', 'Seminar', 'Workshop', 'Lecture', 'Symposium', 'Other'];
 
+  // Resolve params Promise
+  useEffect(() => {
+    const resolveParams = async () => {
+      const resolvedParams = await params;
+      setEventId(resolvedParams.id);
+    };
+    resolveParams();
+  }, [params]);
+
   // Fetch event data and departments
   useEffect(() => {
+    if (!eventId) return;
+    
     const fetchData = async () => {
       try {
         // Fetch event details
-        const eventResponse = await fetch(`/api/events?id=${params.id}`);
+        const eventResponse = await fetch(`/api/events?id=${eventId}`);
         if (!eventResponse.ok) {
           throw new Error('Failed to fetch event data');
         }
@@ -83,7 +95,7 @@ export default function EditEventPage({ params }: { params: { id: string } }) {
     };
 
     fetchData();
-  }, [params.id]);
+  }, [eventId]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;

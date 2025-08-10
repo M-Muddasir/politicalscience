@@ -60,8 +60,8 @@ export default function ImageUpload({
       
       const data = await response.json();
       onImageUpload(data.filePath);
-    } catch (err: any) {
-      setError(err.message || 'Failed to upload image');
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to upload image');
       // Revert preview to original if upload fails
       setPreview(currentImage || null);
     } finally {
@@ -75,11 +75,13 @@ export default function ImageUpload({
         {preview ? (
           <div className="relative h-40 w-40 rounded-lg overflow-hidden border border-gray-300">
             {preview.startsWith('blob:') ? (
-              // For blob URLs during preview, use regular img tag
-              <img
+              // For blob URLs during preview, use Next.js Image component
+              <Image
                 src={preview}
                 alt="Preview"
-                className="absolute inset-0 w-full h-full object-cover"
+                fill
+                className="object-cover"
+                unoptimized
               />
             ) : (
               // For server paths, use Next.js Image component

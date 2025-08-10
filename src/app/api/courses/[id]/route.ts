@@ -4,12 +4,13 @@ import { NextRequest, NextResponse } from 'next/server';
 // GET a single course by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } } // ID comes as a string
+  { params }: { params: Promise<{ id: string }> } // ID comes as a string
 ) {
   try {
+    const { id } = await params;
     const course = await prisma.course.findUnique({
       where: {
-        id: params.id
+        id: id
       },
       include: {
         program: {
@@ -35,8 +36,9 @@ export async function GET(
 // PATCH to update a course
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const data = await request.json();
     
@@ -47,7 +49,7 @@ export async function PATCH(
     
     const course = await prisma.course.update({
       where: {
-        id: params.id
+        id: id
       },
       data
     });
@@ -62,12 +64,13 @@ export async function PATCH(
 // DELETE a course
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     await prisma.course.delete({
       where: {
-        id: params.id
+        id: id
       }
     });
     
