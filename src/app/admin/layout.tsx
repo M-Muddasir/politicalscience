@@ -97,7 +97,7 @@ export default function AdminLayout({
       </div>
 
       {/* Main Content */}
-      <div className="flex-grow">
+      <div className="flex-grow w-[81%]">
         <header className="bg-white shadow p-4">
           <div className="flex justify-between items-center">
             <h1 className="text-xl font-bold text-gray-800">{getPageTitle(pathname)}</h1>
