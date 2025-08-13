@@ -121,6 +121,7 @@ export default function AddNewsPage() {
               currentImage={formData.imageUrl}
               onImageUpload={(imageUrl) => setFormData({ ...formData, imageUrl })}
               className="mb-4"
+              // entityId is not available until after form submission
             />
           </div>
 

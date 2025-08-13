@@ -186,6 +186,7 @@ export default function EditNewsPage({ params }: { params: Promise<{ id: string 
               currentImage={formData.imageUrl || ''}
               onImageUpload={(imageUrl) => setFormData({ ...formData, imageUrl })}
               className="mb-4"
+              entityId={formData.id}
             />
           </div>
 

@@ -265,6 +265,7 @@ export default function EditFacultyPage() {
               currentImage={formData.imageUrl || ''}
               onImageUpload={(imageUrl) => setFormData({ ...formData, imageUrl })}
               className="mb-4"
+              entityId={formData.id}
             />
           </div>
 

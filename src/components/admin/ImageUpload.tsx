@@ -6,15 +6,17 @@ import Image from 'next/image';
 interface ImageUploadProps {
   currentImage?: string;
   onImageUpload: (imageUrl: string) => void;
-  folder: 'news' | 'faculty';
+  folder: 'news' | 'faculty' | 'events';
   className?: string;
+  entityId?: string; // ID of related entity (faculty, event, news) for database association
 }
 
 export default function ImageUpload({ 
   currentImage, 
   onImageUpload, 
   folder, 
-  className = '' 
+  className = '',
+  entityId
 }: ImageUploadProps) {
   const [preview, setPreview] = useState<string | null>(currentImage || null);
   const [uploading, setUploading] = useState(false);
@@ -42,10 +44,15 @@ export default function ImageUpload({
     setError(null);
     setUploading(true);
     
-    // Create form data for upload
+    // Create FormData and append file
     const formData = new FormData();
     formData.append('file', file);
     formData.append('folder', folder);
+    
+    // If we have an entityId, include it to associate the image with the entity
+    if (entityId) {
+      formData.append('entityId', entityId);
+    }
     
     try {
       const response = await fetch('/api/upload', {
@@ -59,7 +66,15 @@ export default function ImageUpload({
       }
       
       const data = await response.json();
-      onImageUpload(data.filePath);
+      
+      // Handle response data from S3 or local upload
+      if (data.url) {
+        // S3 response format
+        onImageUpload(data.url);
+      } else if (data.filePath) {
+        // Local storage fallback format
+        onImageUpload(data.filePath);
+      }
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'Failed to upload image');
       // Revert preview to original if upload fails
@@ -83,13 +98,23 @@ export default function ImageUpload({
                 className="object-cover"
                 unoptimized
               />
-            ) : (
-              // For server paths, use Next.js Image component
+            ) : preview.startsWith('https://') ? (
+              // For S3 URLs
               <Image 
-                src={preview.startsWith('/') ? preview : `/${preview}`}
+                src={preview}
                 alt="Preview" 
                 fill
                 className="object-cover"
+                unoptimized
+              />
+            ) : (
+              // For local server paths, use Next.js Image component
+              <Image 
+                src={preview}
+                alt="Preview" 
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             )}
           </div>
